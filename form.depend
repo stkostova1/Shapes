@@ -1,0 +1,32 @@
+# depslib dependency file v1.0
+1791746340 source:c:\users\pc\desktop\graphics\form\form.cpp
+	"form.h"
+	<GL/glut.h>
+	<cstdlib>
+
+1791744944 c:\users\pc\desktop\graphics\form\form.h
+
+1791746340 source:c:\users\pc\desktop\graphics\form\main.cpp
+	<GL/glut.h>
+	"form.h"
+	<iostream>
+	<vector>
+	<cstdlib>
+
+1791896884 source:c:\users\pc\desktop\graphics – Копие\form\form.cpp
+	"form.h"
+	<GL/glut.h>
+	<cstdlib>
+	<algorithm>
+	<cmath>
+
+1791891849 c:\users\pc\desktop\graphics – Копие\form\form.h
+
+1791897070 source:c:\users\pc\desktop\graphics – Копие\form\main.cpp
+	<GL/glut.h>
+	"form.h"
+	<iostream>
+	<vector>
+	<cstdlib>
+	<ctime>
+
