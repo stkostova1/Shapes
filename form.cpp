@@ -237,3 +237,61 @@ bool Line::contains(float mouseX, float mouseY)
     return (mouseX >= minX && mouseX <= maxX &&
             mouseY >= minY && mouseY <= maxY);
 }
+
+// =========================
+// Circle
+// =========================
+
+Circle::Circle(float x, float y, float xSize)
+    : Shape(x, y, xSize, xSize)
+{
+}
+
+void Circle::draw()
+{
+
+float angle = 5.0f;
+    float radius = xSize / 2.0f;
+    float centerX = this->x + radius;
+    float centerY = this->y + radius;
+
+    glColor3ub(fillR, fillG, fillB);
+
+    glBegin(GL_POLYGON);
+
+    for (float a = 0.0f; a < 360.0f; a += angle)
+    {
+        float x2 = centerX + cos(a * M_PI / 180.0f) * radius;
+        float y2 = centerY + sin(a * M_PI / 180.0f) * radius;
+
+        glVertex2f(x2, y2);
+
+
+    }
+    glEnd();
+
+    glColor3ub(borderR, borderG, borderB);
+
+    glBegin(GL_LINE_LOOP);
+
+    for (float a = 0.0f; a < 360.0f; a += angle)
+    {
+        float x2 = centerX + cos(a * M_PI / 180.0f) * radius;
+        float y2 = centerY + sin(a * M_PI / 180.0f) * radius;
+
+        glVertex2f(x2, y2);
+
+
+    }
+    glEnd();
+
+
+}
+
+
+
+bool Circle::contains(float mouseX, float mouseY)
+{
+
+}
+

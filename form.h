@@ -88,5 +88,19 @@ public:
     bool contains(float mouseX, float mouseY) override;
 };
 
+// =========================
+// Circle
+// =========================
+
+class Circle : public Shape
+{
+
+public:
+    Circle(float x, float y, float xSize );
+
+    void draw() override;
+    bool contains(float mouseX, float mouseY) override;
+};
+
 
 #endif

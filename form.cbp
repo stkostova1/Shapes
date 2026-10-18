@@ -37,7 +37,17 @@
 		<Unit filename="form.depend" />
 		<Unit filename="form.h" />
 		<Unit filename="form.layout" />
+		<Unit filename="global.cpp" />
+		<Unit filename="global.h" />
+		<Unit filename="input.cpp" />
+		<Unit filename="input.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="main.cpp" />
+		<Unit filename="shapeManager.cpp" />
+		<Unit filename="shapeManager.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
