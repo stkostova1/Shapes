@@ -64,16 +64,17 @@
 	<cstdlib>
 	<ctime>
 
-1792089903 source:c:\users\pc\desktop\graphics – Копие\refactored\form.cpp
+1792535803 source:c:\users\pc\desktop\graphics – Копие\refactored\form.cpp
 	"form.h"
 	<GL/glut.h>
 	<cstdlib>
 	<algorithm>
 	<cmath>
+	"global.h"
 
-1792089903 c:\users\pc\desktop\graphics – Копие\refactored\form.h
+1792344398 c:\users\pc\desktop\graphics – Копие\refactored\form.h
 
-1792245317 source:c:\users\pc\desktop\graphics – Копие\refactored\main.cpp
+1792345003 source:c:\users\pc\desktop\graphics – Копие\refactored\main.cpp
 	<GL/glut.h>
 	"form.h"
 	"shapeManager.h"
@@ -83,18 +84,19 @@
 	<vector>
 	<cstdlib>
 	<ctime>
+	<cmath>
 
 1792245045 c:\users\pc\desktop\graphics – Копие\refactored\shapemanager.h
 	"global.h"
 
-1792245933 source:c:\users\pc\desktop\graphics – Копие\refactored\shapemanager.cpp
+1792344398 source:c:\users\pc\desktop\graphics – Копие\refactored\shapemanager.cpp
 	"shapeManager.h"
 	<GL/glut.h>
 
 1792245095 c:\users\pc\desktop\graphics – Копие\refactored\input.h
 	"global.h"
 
-1792246148 source:c:\users\pc\desktop\graphics – Копие\refactored\input.cpp
+1792344398 source:c:\users\pc\desktop\graphics – Копие\refactored\input.cpp
 	"input.h"
 	"form.h"
 	"shapeManager.h"
@@ -105,6 +107,194 @@
 	<vector>
 	"form.h"
 
-1792244988 source:c:\users\pc\desktop\graphics – Копие\refactored\global.cpp
+1792246752 source:c:\users\pc\desktop\graphics – Копие\refactored\global.cpp
 	"global.h"
+
+1792672222 source:c:\users\pc\desktop\graphics\refactored\form.cpp
+	"form.h"
+	<GL/glut.h>
+	<cstdlib>
+	<algorithm>
+	<cmath>
+	"global.h"
+
+1792672222 c:\users\pc\desktop\graphics\refactored\form.h
+
+1792246518 c:\users\pc\desktop\graphics\refactored\global.h
+	<vector>
+	"form.h"
+
+1792246752 source:c:\users\pc\desktop\graphics\refactored\global.cpp
+	"global.h"
+
+1792671688 source:c:\users\pc\desktop\graphics\refactored\input.cpp
+	"input.h"
+	"form.h"
+	"shapeManager.h"
+	<GL/glut.h>
+	<cstdlib>
+	<iostream>
+
+1792245095 c:\users\pc\desktop\graphics\refactored\input.h
+	"global.h"
+
+1792245045 c:\users\pc\desktop\graphics\refactored\shapemanager.h
+	"global.h"
+
+1792579674 source:c:\users\pc\desktop\graphics\refactored\main.cpp
+	<GL/glut.h>
+	"form.h"
+	"shapeManager.h"
+	"input.h"
+	"global.h"
+	<iostream>
+	<vector>
+	<cstdlib>
+	<ctime>
+	<cmath>
+
+1792573012 source:c:\users\pc\desktop\graphics\refactored\shapemanager.cpp
+	"shapeManager.h"
+	<GL/glut.h>
+
+1792675825 source:c:\users\pc\desktop\refactored\form.cpp
+	"form.h"
+	<GL/glut.h>
+	<cstdlib>
+	<algorithm>
+	<cmath>
+	"global.h"
+
+1792675884 c:\users\pc\desktop\refactored\form.h
+
+1792246518 c:\users\pc\desktop\refactored\global.h
+	<vector>
+	"form.h"
+
+1792246752 source:c:\users\pc\desktop\refactored\global.cpp
+	"global.h"
+
+1792671688 source:c:\users\pc\desktop\refactored\input.cpp
+	"input.h"
+	"form.h"
+	"shapeManager.h"
+	<GL/glut.h>
+	<cstdlib>
+	<iostream>
+
+1792245095 c:\users\pc\desktop\refactored\input.h
+	"global.h"
+
+1792245045 c:\users\pc\desktop\refactored\shapemanager.h
+	"global.h"
+
+1792579674 source:c:\users\pc\desktop\refactored\main.cpp
+	<GL/glut.h>
+	"form.h"
+	"shapeManager.h"
+	"input.h"
+	"global.h"
+	<iostream>
+	<vector>
+	<cstdlib>
+	<ctime>
+	<cmath>
+
+1792573012 source:c:\users\pc\desktop\refactored\shapemanager.cpp
+	"shapeManager.h"
+	<GL/glut.h>
+
+1792681864 source:c:\users\28092\desktop\t1-g05-main\t1-g05-main\form.cpp
+	"form.h"
+	<GL/glut.h>
+	<cstdlib>
+	<algorithm>
+	<cmath>
+	"global.h"
+
+1792681864 c:\users\28092\desktop\t1-g05-main\t1-g05-main\form.h
+
+1792685951 c:\users\28092\desktop\t1-g05-main\t1-g05-main\global.h
+	<vector>
+	"form.h"
+
+1792685727 source:c:\users\28092\desktop\t1-g05-main\t1-g05-main\global.cpp
+	"global.h"
+
+1792684420 source:c:\users\28092\desktop\t1-g05-main\t1-g05-main\input.cpp
+	"input.h"
+	"form.h"
+	"shapeManager.h"
+	<GL/glut.h>
+	<cstdlib>
+	<iostream>
+
+1792681864 c:\users\28092\desktop\t1-g05-main\t1-g05-main\input.h
+	"global.h"
+
+1792681864 c:\users\28092\desktop\t1-g05-main\t1-g05-main\shapemanager.h
+	"global.h"
+
+1792685951 source:c:\users\28092\desktop\t1-g05-main\t1-g05-main\main.cpp
+	<GL/glut.h>
+	"form.h"
+	"shapeManager.h"
+	"input.h"
+	"global.h"
+	<iostream>
+	<vector>
+	<cstdlib>
+	<ctime>
+	<cmath>
+
+1792681864 source:c:\users\28092\desktop\t1-g05-main\t1-g05-main\shapemanager.cpp
+	"shapeManager.h"
+	<GL/glut.h>
+
+1793010380 source:c:\users\28092\desktop\t1-g05-main\form.cpp
+	"form.h"
+	<GL/glut.h>
+	<cstdlib>
+	<algorithm>
+	<cmath>
+	"global.h"
+
+1793010380 c:\users\28092\desktop\t1-g05-main\form.h
+
+1793010380 c:\users\28092\desktop\t1-g05-main\global.h
+	<vector>
+	"form.h"
+
+1793010380 source:c:\users\28092\desktop\t1-g05-main\global.cpp
+	"global.h"
+
+1793011731 source:c:\users\28092\desktop\t1-g05-main\input.cpp
+	"input.h"
+	"form.h"
+	"shapeManager.h"
+	<GL/glut.h>
+	<cstdlib>
+	<iostream>
+
+1793010380 c:\users\28092\desktop\t1-g05-main\input.h
+	"global.h"
+
+1793010380 c:\users\28092\desktop\t1-g05-main\shapemanager.h
+	"global.h"
+
+1793010380 source:c:\users\28092\desktop\t1-g05-main\main.cpp
+	<GL/glut.h>
+	"form.h"
+	"shapeManager.h"
+	"input.h"
+	"global.h"
+	<iostream>
+	<vector>
+	<cstdlib>
+	<ctime>
+	<cmath>
+
+1793010380 source:c:\users\28092\desktop\t1-g05-main\shapemanager.cpp
+	"shapeManager.h"
+	<GL/glut.h>
 

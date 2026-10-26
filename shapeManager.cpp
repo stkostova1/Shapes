@@ -9,24 +9,32 @@ void createRandomShape(
 
     switch (type)
     {
-        case 0:
-            newShape = new Rect(x, y, xSize, ySize);
-            break;
+    case 0:
+        newShape = new Rect(x, y, xSize, ySize);
+        break;
 
-        case 1:
-            newShape = new Triangle(x, y, xSize, ySize);
-            break;
+    case 1:
+        newShape = new Triangle(x, y, xSize, ySize);
+        break;
 
-        case 2:
-            newShape = new Line(x, y, x + xSize, y + ySize);
-            break;
+    case 2:
+        newShape = new Line(x, y, x + xSize, y + ySize);
+        break;
 
-        case 3:
-            newShape = new Square(x, y, xSize);
-            break;
+    case 3:
+        newShape = new Square(x, y, xSize);
+        break;
 
-        default:
-            return;
+    case 4:
+        newShape = new Circle(x, y, xSize);
+        break;
+
+    case 5:
+        newShape = new EquilateralTriangle(x, y, xSize);
+        break;
+
+    default:
+        return;
     }
 
     if (activeColor)
@@ -64,10 +72,10 @@ int findShapeAt(float mouseX, float mouseY)
 // Delete a shape by index.
 void deleteShape(int index)
 {
-   if (index < 0 || index >= shapes.size())
-{
-    return;
-}
+    if (index < 0 || index >= shapes.size())
+    {
+        return;
+    }
 
     if (shapes[index] == drawingShape)
     {

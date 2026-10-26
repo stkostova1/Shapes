@@ -7,6 +7,8 @@
 extern int windowX;
 extern int windowY;
 extern int toolsH;
+extern int functionW;
+extern int mode;
 
 extern bool firstClick;
 extern int startX;

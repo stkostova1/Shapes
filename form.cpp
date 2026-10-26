@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <algorithm>
 #include <cmath>
+#include "global.h"
 
 // =========================
 // Shape
@@ -69,7 +70,9 @@ void Rect::draw()
     glVertex2f(x + xSize, y);
 
     glEnd();
-
+if(clicked==0){
+    glColor3ub(255, 0, 0);
+}else
     // Draw the rectangle border.
     glColor3ub(borderR, borderG, borderB);
 
@@ -247,51 +250,113 @@ Circle::Circle(float x, float y, float xSize)
 {
 }
 
+
+
+
 void Circle::draw()
 {
-
-float angle = 5.0f;
-    float radius = xSize / 2.0f;
-    float centerX = this->x + radius;
-    float centerY = this->y + radius;
+    float radius = std::abs(xSize) / 2.0f;
+    float centerX = x +xSize/2.0f;
+    float centerY = y + ySize / 2.0f;
 
     glColor3ub(fillR, fillG, fillB);
-
     glBegin(GL_POLYGON);
 
-    for (float a = 0.0f; a < 360.0f; a += angle)
+    for (int angle = 0; angle < 360; angle += 15)
     {
-        float x2 = centerX + cos(a * M_PI / 180.0f) * radius;
-        float y2 = centerY + sin(a * M_PI / 180.0f) * radius;
-
-        glVertex2f(x2, y2);
-
-
+        float radians = angle * 3.14159265f / 180.0f;
+        glVertex2f(
+            centerX + radius * cos(radians),
+            centerY + radius * sin(radians)
+        );
     }
+
     glEnd();
 
     glColor3ub(borderR, borderG, borderB);
-
     glBegin(GL_LINE_LOOP);
 
-    for (float a = 0.0f; a < 360.0f; a += angle)
+    for (int angle = 0; angle < 360; angle += 15)
     {
-        float x2 = centerX + cos(a * M_PI / 180.0f) * radius;
-        float y2 = centerY + sin(a * M_PI / 180.0f) * radius;
-
-        glVertex2f(x2, y2);
-
-
+        float radians = angle * 3.14159265f / 180.0f;
+        glVertex2f(
+            centerX + radius * cos(radians),
+            centerY + radius * sin(radians)
+        );
     }
+
     glEnd();
-
-
 }
-
-
 
 bool Circle::contains(float mouseX, float mouseY)
 {
+    float radius = std::abs(xSize) / 2.0f;
+    float centerX = x + xSize / 2.0f;
+    float centerY = y + ySize / 2.0f;
 
+    float dx = mouseX - centerX;
+    float dy = mouseY - centerY;
+
+    return dx * dx + dy * dy <= radius * radius;
 }
+
+
+// =========================
+// Equilateral triangle
+// =========================
+EquilateralTriangle::EquilateralTriangle(float x, float y, float xSize)
+    : Shape(x, y, xSize, xSize)
+{
+}
+
+
+void EquilateralTriangle::draw()
+{
+    float radius = std::abs(xSize) / 2.0f;
+    float centerX = x +xSize/2.0f;
+    float centerY = y + ySize / 2.0f;
+
+    glColor3ub(fillR, fillG, fillB);
+    glBegin(GL_POLYGON);
+
+    for (int angle = 90; angle < 450; angle += 120)
+    {
+        float radians = angle * 3.14159265f / 180.0f;
+        glVertex2f(
+            centerX + radius * cos(radians),
+            centerY + radius * sin(radians)
+        );
+    }
+
+    glEnd();
+
+    glColor3ub(borderR, borderG, borderB);
+    glBegin(GL_LINE_LOOP);
+
+    for (int angle = 90; angle < 450; angle += 120)
+    {
+        float radians = angle * 3.14159265f / 180.0f;
+        glVertex2f(
+            centerX + radius * cos(radians),
+            centerY + radius * sin(radians)
+        );
+    }
+
+    glEnd();
+}
+
+bool EquilateralTriangle::contains(float mouseX, float mouseY)
+{
+    float radius = std::abs(xSize) / 2.0f;
+    float centerX = x + xSize / 2.0f;
+    float centerY = y + ySize / 2.0f;
+
+    float dx = mouseX - centerX;
+    float dy = mouseY - centerY;
+
+    return dx * dx + dy * dy <= radius * radius;
+}
+
+
+
 

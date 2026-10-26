@@ -4,13 +4,12 @@
 #include "shapeManager.h"
 #include <GL/glut.h>
 #include <cstdlib>
+#include <iostream>
 
-
-
-//Convert the mouse Y coordinate to drawing-area coordinates.
+// Convert the mouse Y coordinate to drawing-area coordinates.
 int getWorldY(int mouseY)
 {
-    return windowY - 1 - mouseY - toolsH;
+    return windowY - 1 - mouseY;
 }
 
 // =========================
@@ -18,59 +17,138 @@ int getWorldY(int mouseY)
 // =========================
 void mymouse(int button, int state, int mouseX, int mouseY)
 {
+
+
+
+    int worldY = getWorldY(mouseY);
+
+
     // Stop moving a shape when the left button is released.
     if (button == GLUT_LEFT_BUTTON && state == GLUT_UP)
     {
+
+
+        // Second click: set the final size of the shape.
+        int xSize = mouseX - startX;
+        int ySize = worldY - startY;
+
+        if (drawingShape != nullptr)
+        {
+            drawingShape->updateSize(xSize, ySize);
+        }
+
+        firstClick = false;
+        drawingShape = nullptr;
+
+        glutPostRedisplay();
+
         selectedShape = -1;
         return;
     }
 
     // Handle clicks inside the toolbox separately.
-    if (state == GLUT_DOWN && mouseY >= windowY - toolsH)
+    if (state == GLUT_DOWN && mouseY < toolsH)
     {
         if (button == GLUT_LEFT_BUTTON)
         {
-            // Convert the mouse Y coordinate to toolbox coordinates.
-            int toolboxY = windowY - 1 - mouseY;
+
+            // Convert mouse Y to toolbox coordinates.
+            int toolboxY = toolsH - 1 - mouseY;
 
             int boxSize = 35;
             int gap = 8;
             int paletteX = 180;
-            int paletteY = 32;
+            int paletteY = 50;
 
-            // Check whether a palette color was clicked.
+            // Check whether a color was clicked.
             for (int i = 0; i < 10; i++)
             {
                 int x = paletteX + i * (boxSize + gap);
 
                 if (mouseX >= x && mouseX <= x + boxSize &&
-                        toolboxY >= paletteY &&
-                        toolboxY <= paletteY + boxSize)
+                    toolboxY >= paletteY &&
+                    toolboxY <= paletteY + boxSize)
                 {
                     selectColor(i);
                     return;
                 }
             }
+
+            int boxSize2 = 35;
+            int gap2 = 8;
+            int paletteX2 = 180;
+            int paletteY2 = 10;
+
+            // Check whether a shape was clicked.
+            for (int i = 0; i < 6; i++)
+            {
+                int x = paletteX2 + i * (boxSize2 + gap2);
+
+                if (mouseX >= x && mouseX <= x + boxSize2 &&
+                    toolboxY >= paletteY2 &&
+                    toolboxY <= paletteY2 + boxSize2)
+                {
+                    activeShape = i;
+                    glutPostRedisplay();
+                    return;
+                }
+            }
+
+    }
+ // Do not create, select, or delete shapes in the toolbox.
+        return;
+
+
         }
 
-        // Do not create, select, or delete shapes in the toolbox.
+
+
+
+      int boxSize3 = 35;
+    int gap3 = 8;
+    int paletteX3 = 10;
+    int paletteY3 = 50;
+int funcX=-(windowX-mouseX-functionW);
+
+
+
+    for (int i = 0; i < 4; i++)
+    {
+
+
+    int y = paletteY3 + i * (boxSize3 + gap3);
+
+
+       if (funcX >= paletteX3 && funcX <= paletteX3 + boxSize3 &&
+        worldY >= y && worldY <= y + boxSize3)
+    {
+       switch(i){
+       case 0:mode=0;
+       break;
+        case 1:mode=1;
+       break;
+        case 2:mode=2;
+       break;
+       case 3:mode=3;
+
+       }
+
         return;
     }
 
-    // Convert the mouse position to drawing-area coordinates.
-    int worldY = getWorldY(mouseY);
+    }
 
     // Delete a shape with the right mouse button.
     if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN)
     {
 
-        int ind=-1;
+        int ind = -1;
 
         for (int i = shapes.size() - 1; i >= 0; i--)
         {
-            if (shapes[i]->contains(mouseX,worldY))
+            if (shapes[i]->contains(mouseX, worldY))
             {
-                ind=i;
+                ind = i;
                 break;
             }
         }
@@ -103,7 +181,9 @@ void mymouse(int button, int state, int mouseX, int mouseY)
         if (activeShape != -1)
             type = activeShape;
         else
-            type = rand() % 4;
+            type = rand() % 5;
+
+
 
         // First click: create the shape with zero size.
         if (!firstClick)
@@ -123,20 +203,6 @@ void mymouse(int button, int state, int mouseX, int mouseY)
             createRandomShape(type, startX, startY, 0, 0);
             drawingShape = shapes.back();
         }
-        // Second click: set the final size of the shape.
-        else
-        {
-            int xSize = mouseX - startX;
-            int ySize = worldY - startY;
-
-            if (drawingShape != nullptr)
-                drawingShape->updateSize(xSize, ySize);
-
-            firstClick = false;
-            drawingShape = nullptr;
-
-            glutPostRedisplay();
-        }
     }
 }
 
@@ -145,9 +211,13 @@ void mymouse(int button, int state, int mouseX, int mouseY)
 // =========================
 void mousemove(int x, int y)
 {
+
     // Ignore mouse movement inside the toolbox.
-    if (y >= windowY - toolsH)
-        return;
+
+        if(y < toolsH)
+        {
+            return;
+        }
 
     int worldX = x;
     int worldY = getWorldY(y);
@@ -174,8 +244,7 @@ void mousemove(int x, int y)
     // Update the size of the shape while it is being drawn.
     drawingShape->updateSize(
         worldX - startX,
-        worldY - startY
-    );
+        worldY - startY);
 
     glutPostRedisplay();
 }
@@ -188,7 +257,7 @@ void mykey(unsigned char key, int mouseX, int mouseY)
     // Quit the program.
     if (key == 'Q' || key == 'q')
     {
-        for (Shape* shape : shapes)
+        for (Shape *shape : shapes)
             delete shape;
 
         shapes.clear();
@@ -234,6 +303,16 @@ void mykey(unsigned char key, int mouseX, int mouseY)
     case 'S':
     case 's':
         activeShape = 3;
+        break;
+
+    case 'C':
+    case 'c':
+        activeShape = 4;
+        break;
+
+    case 'E':
+    case 'e':
+        activeShape = 5;
         break;
     }
 

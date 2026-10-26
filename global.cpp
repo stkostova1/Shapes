@@ -3,6 +3,8 @@
 int windowX = 800;
 int windowY = 600;
 int toolsH = 100;
+int functionW=70;
+int mode=-1;
 
 bool firstClick = false;
 int startX = 0;

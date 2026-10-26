@@ -19,7 +19,7 @@ public:
     Shape(float x, float y, float xSize, float ySize);
 
 void move(float dx, float dy);
-    void setColor(unsigned char r,unsigned char g,unsigned char b);
+void setColor(unsigned char r,unsigned char g,unsigned char b);
     virtual void draw() = 0;
     virtual bool contains(float mouseX, float mouseY) = 0;
     virtual void updateSize(float xSize, float ySize);
@@ -100,6 +100,22 @@ public:
 
     void draw() override;
     bool contains(float mouseX, float mouseY) override;
+
+};
+
+// =========================
+// Equilateral triangle
+// =========================
+
+class EquilateralTriangle : public Shape
+{
+
+public:
+    EquilateralTriangle(float x, float y, float xSize );
+
+    void draw() override;
+    bool contains(float mouseX, float mouseY) override;
+
 };
 
 
